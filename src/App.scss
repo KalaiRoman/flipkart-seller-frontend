@@ -1,0 +1,25 @@
+@use "sass" as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cursor {
+    cursor: pointer;
+}
+
+.button {
+    width: auto;
+    padding: 10px 30px;
+    border-radius: 5px;
+    color: white;
+    background-color: orange;
+    cursor: pointer;
+}
+// box shado
+
+.boxshadow {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: white;
+    border-radius: 5px;
+}

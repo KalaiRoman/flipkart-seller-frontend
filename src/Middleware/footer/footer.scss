@@ -1,0 +1,25 @@
+@use "../../sass/abstract/" as *;
+
+.main-footer-section {
+    width: 100%;
+    height: 100vh;
+    background-color: #1a1a1a;
+    @include xsBreakPoint {
+        width: 100%;
+        height: 100%;
+        padding-bottom: 20%;
+    }
+    .inside-footer-section {
+        // background-image: url("../../assests/images/footerimage.png");
+        // background-image: url("https://img.freepik.com/premium-photo/hamburger-with-tomato-it_111797-1673.jpg");
+        // background-image: url("https://images-eu.ssl-images-amazon.com/images/G/31/amazonservices/Blog/SPN-Intro._._SL1280_FMjpg_.jpg");
+
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        z-index: 0 !important;
+        color: white;
+        padding: 5% 0px;
+        background-size: cover;
+    }
+}
