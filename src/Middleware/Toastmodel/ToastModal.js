@@ -6,5 +6,5 @@ export const ToastSuccess = (message) => {
 }
 
 export const ToastError = (message) => {
-    return toast.success(message);
+    return toast.error(message);
 }

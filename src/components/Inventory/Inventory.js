@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Products() {
+function Inventory() {
     return (
         <div className='w-[100%] h-[100%]'>
             <div className='p-4 w-[90%] mx-auto'>
-                <div className='w-[100%] flex justify-end'>
-                    <button className='button' onClick={() => window.location.assign("/addproduct")}>+ Add Product</button>
+                <div className='w-[100%] flex justify-start'>
+                    <button className='button fw-bold'>Inventory Update</button>
                 </div>
                 <div className='boxshadow mt-10 w-[100%] h-[100%] py-3 px-5'>
                     {Array(10)?.fill(null).map((item, index) => {
@@ -23,16 +23,14 @@ function Products() {
                                         </div>
                                     </div>
                                     <div className='w-[20%] flex gap-[30px] content-center justify-center align-items-center'>
-                                        <div className='mt-5 flex gap-[30%]'>
+                                        <div className='mt-5 flex gap-[50%]'>
                                             <div className='cursor hover:text-green-500 text-2xl '>
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </div>
                                             <div className='cursor hover:text-orange-500 text-2xl'>
                                                 <i class="fa-solid fa-eye"></i>
                                             </div>
-                                            <div className='cursor hover:text-red-500 text-2xl'>
-                                                <i class="fa-solid fa-trash"></i>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -45,4 +43,4 @@ function Products() {
     )
 }
 
-export default Products
+export default Inventory

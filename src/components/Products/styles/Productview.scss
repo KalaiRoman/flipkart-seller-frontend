@@ -1,0 +1,89 @@
+@use "../../../../sass/abstract/" as *;
+
+.main-view-product {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    .inside-view {
+        width: 95%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        gap: 3%;
+        .left-view {
+            width: 60%;
+            .left-inaide-view {
+                width: 100%;
+                height: 80%;
+                display: flex;
+                gap: 10px;
+                .left-inside-left {
+                    width: 20%;
+                    height: 100%;
+                    .image-left-cards {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        height: 600px;
+                        overflow: hidden;
+                    }
+                    .image-left-height {
+                        height: 100%;
+                        overflow: hidden;
+                        overflow-y: auto;
+                        flex-direction: column;
+                        gap: 20px;
+                        padding: 10px;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 auto;
+                    }
+                    .image-card-lefts {
+                        width: 120px;
+                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                        background-color: white;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        padding: 10px;
+                        height: 70px;
+                    }
+                    .active-card {
+                        width: 100%;
+                        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                        background-color: white;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        padding: 10px;
+                        height: 70px;
+                        border: 3px solid #dc84f3;
+                    }
+                    .active-imagecard {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+                .left-inside-right {
+                    width: 80%;
+                    height: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: white;
+                    border-radius: 20px;
+                }
+                .right-image-product {
+                    width: 100%;
+                    height: 520px;
+                    object-fit: contain;
+                }
+            }
+        }
+        .right-view {
+            width: 40%;
+        }
+    }
+}

@@ -9,7 +9,7 @@ function Layoutheader({ children }) {
     return (
         <div className='w-[100%] h-[100vh] overflow-y-auto'>
             <div className='w-[100%] h-[100%]'>
-                {pathname == "/" || pathname == "/sign-up" || pathname == "/forget-password" ? <></> : <>
+                {pathname == "/" || pathname == "/sign-up" || pathname == "/forget-password" || pathname == "/otp" ? <></> : <>
                     <div className='w-[100%] '>
                         <Header />
                     </div>
@@ -18,7 +18,7 @@ function Layoutheader({ children }) {
                     {children}
                 </div>
                 <div className='w-[100%] '>
-                    {pathname == "/" || pathname == "/sign-up" || pathname == "/forget-password" ? <></> : <>
+                    {pathname == "/" || pathname == "/sign-up" || pathname == "/forget-password" || pathname == "/otp" ? <></> : <>
                         <div>
                             <Footer />
                         </div>
