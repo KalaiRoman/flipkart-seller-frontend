@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Form, Row, Col } from 'react-bootstrap';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { ToastError } from '../../Middleware/Toastmodel/ToastModal';
-// import { CreateProductActions, EditProductActions, GetSingleProductActions } from '../../../redux/actions/CreateProductActions';
+import { ToastError, ToastSuccess } from '../../Middleware/Toastmodel/ToastModal';
+import { createproductService, editProductService, getCurrentsingleproductServices } from '../../services/product_service/product_service';
 
 function Addproduct() {
 
@@ -30,13 +29,16 @@ function Addproduct() {
 
 
     const handleImages = (image) => {
-        console.log(image, "image")
-        if (multiimages?.includes(image)) {
-            ToastError("Already Added Image")
-        }
-        else {
-            setMultimages([...multiimages, image]);
-            setMultimg("");
+
+        if (multiimg) {
+
+            if (multiimages?.includes(image)) {
+                ToastError("Already Added Image")
+            }
+            else {
+                setMultimages([...multiimages, image]);
+                setMultimg("");
+            }
         }
     }
     const {
@@ -55,7 +57,7 @@ function Addproduct() {
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
-    const SubmitData = (e) => {
+    const SubmitData = async (e) => {
         e.preventDefault();
         if (productname?.length === 0 || oldprice?.length === 0 || saleprice?.length === 0 || discount?.length === 0 || quantity?.length === 0 || description?.length === 0 || thumbimage?.length === 0
             || color?.length === 0 || size?.length == 0 || multiimg?.length === 0) {
@@ -84,13 +86,37 @@ function Addproduct() {
                 size,
                 imagestore: multiimages
             }
-            // dispatch(CreateProductActions(datas, navigtate))
+
+            try {
+                const response = await createproductService(datas);
+
+                if (response) {
+                    navigtate("/product");
+                    ToastSuccess("product Created")
+                }
+            } catch (error) {
+
+            }
+
         }
     }
 
     useEffect(() => {
         if (state?.productid) {
-            // dispatch(GetSingleProductActions(state?.productid));
+            const datas = async () => {
+                try {
+                    const response = await getCurrentsingleproductServices(state?.productid);
+                    if (response) {
+                        setUser(response?.data)
+                        setMultimages(response?.data?.imagestore)
+
+                    }
+                } catch (error) {
+
+                }
+            }
+
+            datas();
         }
     }, [state?.productid]);
 
@@ -108,7 +134,7 @@ function Addproduct() {
     // produtdata
 
 
-    const UpdateProduct = () => {
+    const UpdateProduct = async () => {
         if (productname?.length === 0 || oldprice?.length === 0 || saleprice?.length === 0 || discount?.length === 0 || quantity?.length === 0 || description?.length === 0 || thumbimage?.length === 0
             || color?.length === 0 || size?.length == 0 || multiimg?.length === 0) {
             setError(true);
@@ -136,7 +162,18 @@ function Addproduct() {
                 size,
                 imagestore: multiimages
             }
-            // dispatch(EditProductActions(state?.productid, datas, navigtate))
+
+            try {
+
+                const response = await editProductService(state?.productid, datas);
+
+                if (response) {
+                    navigtate("/product");
+                }
+
+            } catch (error) {
+
+            }
         }
     }
     return (
@@ -280,7 +317,7 @@ function Addproduct() {
 
 
                             {state ? <>
-                                <button className='submit-button mb-5' onClick={UpdateProduct}>
+                                <button className='bg-blue-600 p-3 rounded text-white fw-bold mb-5' onClick={UpdateProduct}>
                                     Update Product
                                 </button>
                             </> : <>

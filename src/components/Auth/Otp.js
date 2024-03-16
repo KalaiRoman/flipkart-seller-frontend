@@ -13,7 +13,6 @@ function Otp() {
     const [otp, setOtp] = useState("");
 
     const handleSubmit = async () => {
-
         const data = {
             otp: otp,
             userid: state?.id
@@ -21,15 +20,22 @@ function Otp() {
         const response = await OtpEnter(data);
 
         if (response) {
-
-
             navigate("/home");
         }
+        else {
+            ToastError("Wrong Otp!!")
+        }
     }
+    useEffect(() => {
+    }, [state?.id, otp]);
 
     useEffect(() => {
+        if (otp?.length == 6) {
+            handleSubmit();
+        }
+    }, [otp])
 
-    }, [state])
+    console.log(otp?.length)
     return (
         <div className='w-[100%] h-[100vh] overflow-hidden flex content-center justify-center align-items-center'>
             <div className='w-[60%]'>
@@ -56,7 +62,7 @@ function Otp() {
                             }
                             }
                             value={otp}
-                            maxLength={6}
+                            maxLength={7}
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="*-*-*-*-*-*" required />
                     </div>
                     <div className='mt-3'>
