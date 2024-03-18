@@ -63,3 +63,22 @@ export async function updateImageService(data) {
         throw err;
     }
 }
+
+export async function chatUserService(data) {
+    try {
+        const response = await instanceBaseurl.post(`/seller/auth/chat/seller-to-admin`, data);
+        return response.data;
+    } catch (err) {
+        throw err;
+    }
+}
+
+
+export async function getAllusersService() {
+    try {
+        const response = await instanceBaseurl.get(`/seller/auth/admin/users`);
+        return response.data;
+    } catch (err) {
+        throw err;
+    }
+}

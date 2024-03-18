@@ -10,4 +10,5 @@ import Inventory from './../components/Inventory/Inventory';
 import Addproduct from './../components/Products/Addproduct';
 import Otp from './../components/Auth/Otp';
 import Profile from './../components/Profile/Profile';
-export { Signin, Signup, Home, ForgetPassword, PagenotFound, Changepassword, Products, Orders, Inventory, Addproduct, Otp,Profile }
+import Chat from './../components/Chat/Chat';
+export { Signin, Signup, Home, ForgetPassword, PagenotFound, Changepassword, Products, Orders, Inventory, Addproduct, Otp,Profile,Chat }

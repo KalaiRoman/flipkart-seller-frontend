@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Addproduct, Changepassword, ForgetPassword, Home, Inventory, Orders, Otp, PagenotFound, Products, Profile, Signin, Signup } from '../Pages/Pages';
+import { Addproduct, Changepassword, Chat, ForgetPassword, Home, Inventory, Orders, Otp, PagenotFound, Products, Profile, Signin, Signup } from '../Pages/Pages';
 import ProtectedRouter from '../Middleware/protectedRouter/ProtectedRouter';
 import TokenId from '../Middleware/token/TokenId';
 function Routing() {
@@ -20,8 +20,7 @@ function Routing() {
                 <Route exact path="/inventory" element={<Inventory />}></Route>
                 <Route path="addproduct" element={<Addproduct />}></Route>
                 <Route path="profile" element={<Profile />}></Route>
-
-
+                <Route path="chat" element={<Chat />}></Route>
             </Route>
             <Route exact path="/*" element={<PagenotFound />}></Route>
         </Routes>

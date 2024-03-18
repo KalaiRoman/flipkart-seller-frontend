@@ -1,0 +1,42 @@
+@use "../../sass/abstract/" as *;
+
+.right-chat-box {
+    position: relative;
+
+    .message-box {
+        width: 100%;
+    }
+    .sender-message {
+        display: flex;
+        justify-content: flex-end;
+        margin: 10px 0px;
+        width: auto;
+    }
+    .receiver-message {
+        display: flex;
+        justify-content: flex-start;
+        margin: 10px 0px;
+    }
+
+    .sender-messagess {
+        display: flex;
+        justify-content: flex-end;
+        margin: 10px 0px;
+        width: auto;
+        border: 2px solid red;
+        border-top-left-radius: 30px;
+        padding: 5px 20px;
+    }
+    .receiver-messagess {
+        display: flex;
+        justify-content: flex-start;
+        margin: 10px 0px;
+        border: 2px solid green;
+        padding: 5px 20px;
+        border-top-right-radius: 30px;
+    }
+}
+
+.border-color-red {
+    border: 2px solid red !important;
+}
